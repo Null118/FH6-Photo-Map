@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FH6 Photo Map
 
-## Getting Started
+基于 Next.js App Router、Prisma 和 SQLite 的 FH6 摄影地图原型。首页使用静态底图 `FH_6.jpg`，支持拖拽、滚轮缩放、地图原位打点、多图上传和管理员发布管理。
 
-First, run the development server:
+## 技术栈
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- TypeScript
+- Next.js 16
+- React 19
+- Prisma
+- SQLite
+- 本地图片上传
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 环境要求
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js 24+
+- npm 10+
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 初始化
 
-## Learn More
+1. 安装依赖：`npm install`
+2. 复制底图到 `public/maps/FH_6.jpg`
+3. 创建数据库并执行迁移：`npx prisma migrate dev --name init`
+4. 写入示例数据：`npm run seed`
+5. 启动开发环境：`npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+## 常用命令
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev`
+- `npm run lint`
+- `npm run test:run`
+- `npm run build`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 目录说明
 
-## Deploy on Vercel
+- `src/app`：页面与 Server Actions
+- `src/components`：地图、表单、管理组件
+- `src/lib`：数据库、上传、校验与地图工具
+- `prisma/schema.prisma`：数据模型
+- `public/maps`：地图底图
+- `public/uploads`：本地上传图片
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 当前版本能力
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 首页地图拖拽与滚轮缩放
+- 首页“添加标点”进入原位打点模式
+- 仅快速单击地图空白区域时新增标点
+- 标点后进入地点创建页，支持多张照片与固定/自定义拍摄参数
+- 地点详情页展示照片与参数
+- 管理中心查看、发布、删除地点

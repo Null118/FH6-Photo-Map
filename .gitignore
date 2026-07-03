@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local mockups
+.superpowers/
+
+# local tools and scratch files
+.tools/
+.tmp/
+dev-engine-root.db
+
+# local sqlite databases
+prisma/*.db
+prisma/*.db-journal
+prisma/smoke.sql
+
+# local user uploads; keep curated demo assets
+public/uploads/*
+!public/uploads/sample-placeholder.svg
+!public/uploads/fh6-demo-*

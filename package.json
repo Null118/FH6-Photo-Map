@@ -1,26 +1,44 @@
 {
-  "name": "fh6-photo-map-bootstrap",
+  "name": "fh6-photo-map",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "seed": "tsx prisma/seed.ts",
+    "seed:fh6-demo": "tsx prisma/seed-fh6-demo-photos.ts"
   },
   "dependencies": {
+    "@prisma/adapter-libsql": "^7.8.0",
+    "@prisma/client": "^6.19.3",
+    "dotenv": "^17.4.2",
     "next": "16.2.9",
+    "prisma": "^6.19.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "server-only": "^0.0.1",
+    "slugify": "^1.6.9",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.22.4",
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.9"
   }
 }

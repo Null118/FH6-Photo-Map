@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">FH6 Photo Placeholder</title>
+  <desc id="desc">A placeholder image used before local uploads are added.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f3a5f" />
+      <stop offset="100%" stop-color="#d1603d" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <circle cx="260" cy="220" r="110" fill="rgba(255,255,255,0.12)" />
+  <circle cx="960" cy="640" r="180" fill="rgba(255,255,255,0.09)" />
+  <path d="M0 700 L260 480 L430 610 L620 420 L890 660 L1200 470 L1200 900 L0 900 Z" fill="rgba(17,24,39,0.42)" />
+  <g fill="#fff">
+    <text x="80" y="120" font-family="Segoe UI, sans-serif" font-size="52" font-weight="700">FH6 Photo Map</text>
+    <text x="80" y="190" font-family="Segoe UI, sans-serif" font-size="28">
+      Seeded placeholder image for admin and detail-page verification
+    </text>
+  </g>
+</svg>
