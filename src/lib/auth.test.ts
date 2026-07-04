@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   createSessionToken,
@@ -8,6 +8,9 @@ import {
   verifyPassword,
   type AuthSession,
 } from "@/lib/auth";
+import { getAuthSecret } from "@/lib/auth-server";
+
+vi.mock("server-only", () => ({}));
 
 const AUTH_SECRET = "fh6-photo-map-test-secret";
 
@@ -85,5 +88,18 @@ describe("auth helpers", () => {
     ).toBe(false);
 
     expect(isAdminSession(null)).toBe(false);
+  });
+
+  it("requires an explicit auth secret in production", () => {
+    const originalNodeEnv = process.env.NODE_ENV;
+    const originalAuthSecret = process.env.AUTH_SECRET;
+
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("AUTH_SECRET", "");
+
+    expect(() => getAuthSecret()).toThrow("AUTH_SECRET must be set in production.");
+
+    vi.stubEnv("NODE_ENV", originalNodeEnv);
+    vi.stubEnv("AUTH_SECRET", originalAuthSecret);
   });
 });

@@ -10,8 +10,18 @@ import type { AuthSession } from "@/types";
 const SESSION_COOKIE_NAME = "fh6_session";
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 7;
 
-function getAuthSecret() {
-  return process.env.AUTH_SECRET ?? "fh6-photo-map-dev-secret";
+export function getAuthSecret() {
+  const authSecret = process.env.AUTH_SECRET;
+
+  if (authSecret) {
+    return authSecret;
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("AUTH_SECRET must be set in production.");
+  }
+
+  return "fh6-photo-map-dev-secret";
 }
 
 function getSessionExpiryDate() {

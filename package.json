@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "test": "vitest",
     "test:run": "vitest run",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
     "seed": "tsx prisma/seed.ts",
     "seed:fh6-demo": "tsx prisma/seed-fh6-demo-photos.ts"
   },
