@@ -48,6 +48,7 @@ next-env.d.ts
 .tools/
 .tmp/
 dev-engine-root.db
+supabase/.temp/
 
 # local sqlite databases
 prisma/*.db
